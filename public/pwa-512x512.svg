@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E56F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  <text x="256" y="190" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-size="72" font-weight="900">GEN Z</text>
+  <text x="256" y="300" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-size="100" font-weight="900">NEWS</text>
+  <circle cx="90" cy="90" r="22" fill="#FFD600"/>
+  <circle cx="422" cy="90" r="16" fill="#FF6B6B"/>
+  <circle cx="422" cy="422" r="22" fill="#00E5A0"/>
+  <circle cx="90" cy="422" r="16" fill="#FF9F43"/>
+</svg>

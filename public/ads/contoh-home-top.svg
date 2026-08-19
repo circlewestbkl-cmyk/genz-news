@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="110" viewBox="0 0 1280 110">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="110" fill="url(#g)"/>
+  <circle cx="1180" cy="20" r="90" fill="#ffffff" opacity="0.12"/>
+  <circle cx="100" cy="110" r="70" fill="#ffffff" opacity="0.08"/>
+  <text x="640" y="52" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="2">CONTOH IKLAN</text>
+  <text x="640" y="84" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff" fill-opacity="0.9">1280 x 110 px  ·  Beranda Bawah Breaking News</text>
+</svg>

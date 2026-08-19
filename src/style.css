@@ -1,0 +1,669 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-groovy: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+
+  /* Electric blue — warna utama (netral, keren, semua gender) */
+  --color-brand-50: #edf4ff;
+  --color-brand-100: #dce9ff;
+  --color-brand-200: #b8d4ff;
+  --color-brand-300: #84b4ff;
+  --color-brand-400: #4d8dff;
+  --color-brand-500: #2f6dff;
+  --color-brand-600: #1e56f0;
+  --color-brand-700: #1b46c9;
+  --color-brand-800: #1c3ca1;
+  --color-brand-900: #1c357e;
+
+  /* Acid lime — aksen menyala */
+  --color-acid-100: #f6fdd9;
+  --color-acid-200: #edfb9e;
+  --color-acid-300: #e3f96b;
+  --color-acid-400: #d7f74a;
+  --color-acid-500: #cdf32e;
+  --color-acid-600: #b4e11a;
+  --color-acid-700: #93b913;
+
+  /* Grape — ungu sekunder */
+  --color-grape-100: #f3eefd;
+  --color-grape-200: #e0d6fb;
+  --color-grape-300: #c4b5fd;
+  --color-grape-400: #a78bfa;
+  --color-grape-500: #8b5cf6;
+  --color-grape-600: #7c3aed;
+  --color-grape-700: #6d28d9;
+
+  /* Tinta — deep plum untuk judul & teks utama */
+  --color-link-50: #faf5fc;
+  --color-link-100: #f3e8f7;
+  --color-link-200: #e2d3ea;
+  --color-link-300: #c9a8d8;
+  --color-link-400: #a97bbe;
+  --color-link-500: #8550a0;
+  --color-link-600: #3b1e52;
+  --color-link-700: #2a1038;
+  --color-link-800: #200b2c;
+  --color-link-900: #170620;
+
+  /* Radius lebih membulat — khas Y2K */
+  --radius: 0.875rem;
+  --radius-DEFAULT: 0.875rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #fff9f1;
+  background-image:
+    radial-gradient(640px 320px at 92% -4%, rgba(47, 109, 255, 0.12), transparent 60%),
+    radial-gradient(720px 420px at -12% 12%, rgba(139, 92, 246, 0.09), transparent 60%),
+    radial-gradient(520px 320px at 108% 52%, rgba(205, 243, 46, 0.14), transparent 60%);
+  background-attachment: fixed;
+  color: #5a4a63;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Aksen pink untuk logo & teks brand */
+.text-gradient {
+  color: var(--color-brand-600);
+}
+
+/* ==== Utilitas Y2K Neon Pop ==== */
+
+/* Kartu chunky: border tebal + bayangan offset solid */
+.y2k-card {
+  background-color: #ffffff;
+  border: 2px solid var(--color-link-700);
+  border-radius: 1.25rem;
+  box-shadow: 5px 5px 0 rgba(42, 16, 56, 1);
+}
+.y2k-card-hover {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.y2k-card-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 rgba(42, 16, 56, 1);
+}
+
+/* Stiker: chip tebal membulat dengan bayangan offset kecil */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid var(--color-link-700);
+  border-radius: 999px;
+  box-shadow: 2.5px 2.5px 0 var(--color-link-700);
+}
+
+/* Teks gradien biru → ungu → cyan → lime */
+.gradient-text {
+  background: linear-gradient(90deg, #2f6dff, #8b5cf6 45%, #22d3ee 80%, #cdf32e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Teks outline khas Y2K */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-link-700);
+}
+
+/* Judul seksi majalah: label stiker + judul tebal */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-groovy);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-link-700);
+}
+.section-title .tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.65rem;
+  background: var(--color-acid-500);
+  border: 2px solid var(--color-link-700);
+  border-radius: 999px;
+  box-shadow: 2.5px 2.5px 0 var(--color-link-700);
+  color: var(--color-link-700);
+  white-space: nowrap;
+}
+
+/* Kartu putih rapi (tetap dipakai di beberapa tempat) */
+.glass {
+  background-color: #ffffff;
+  border: 2px solid var(--color-link-700);
+  border-radius: 1.25rem;
+  box-shadow: 4px 4px 0 rgba(42, 16, 56, 0.9);
+}
+
+.glass-hover {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-hover:hover {
+  border-color: var(--color-brand-600);
+  box-shadow: 7px 7px 0 rgba(42, 16, 56, 0.9);
+  transform: translate(-2px, -2px);
+}
+
+/* Marquee (ticker berjalan) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Garis aksen untuk judul seksi */
+.gradient-underline {
+  position: relative;
+}
+.gradient-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  height: 4px;
+  width: 56px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-brand-600), var(--color-grape-500));
+}
+
+/* Utilitas line-clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Isi artikel — pecah kata/string panjang tanpa spasi agar tidak meluber */
+.article-content {
+  overflow-wrap: anywhere;
+  word-break: break-word; /* fallback Safari lama */
+}
+.article-content p {
+  @apply text-slate-700 leading-relaxed mb-5;
+}
+.article-content h2 {
+  @apply text-2xl font-bold mt-8 mb-3 text-slate-900;
+  position: relative;
+  padding-left: 0.9rem;
+}
+.article-content h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  bottom: 0.35em;
+  width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--color-brand-600), var(--color-grape-500));
+}
+.article-content blockquote {
+  @apply border-l-4 border-acid-500 pl-4 italic text-slate-500 my-6;
+  background: #f6fdd9;
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Scrollbar kustom */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fff3e6;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-600);
+  border-radius: 999px;
+}
+
+/* Sorotan teks */
+::selection {
+  background: #1e56f0;
+  color: #ffffff;
+}
+
+/* =========================================
+   RESPONSIVE & TOUCH-FRIENDLY UTILITIES
+   ========================================= */
+
+/* Touch-friendly: minimum tap target 44px */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Touch-friendly interactive elements */
+.touch-friendly {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scrollable horizontal container with snap */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-snap-x > * {
+  scroll-snap-align: start;
+}
+
+/* Hide scrollbar but keep scrollable */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile menu overlay */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(42, 16, 56, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Mobile slide menu */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+.slide-enter-active {
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-leave-active {
+  animation: slide-out-right 0.25s ease-in;
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Swipe hint animation */
+@keyframes swipe-hint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
+
+/* Safe area insets for notch devices */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.safe-area-left {
+  padding-left: env(safe-area-inset-left, 0);
+}
+.safe-area-right {
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+/* Prevent overscroll bounce on iOS */
+.no-overscroll {
+  overscroll-behavior: none;
+}
+
+/* Mobile-optimized article content */
+@media (max-width: 639px) {
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .article-content h2 {
+    font-size: 1.25rem;
+  }
+  .article-content p {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Tablet breakpoint adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Focus visible for keyboard/touch navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus ring on mouse click, keep on keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea, select {
+  transition: all 0.15s ease;
+}
+
+/* Improve tap feedback on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .y2k-card-hover:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  .glass-hover:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Prevent text selection on interactive elements for touch */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Sticky bottom bar for mobile */
+.sticky-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Responsive font scaling */
+@media (max-width: 479px) {
+  .text-responsive-xl {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  .text-responsive-2xl {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
+/* Hamburger menu icon animation */
+.hamburger-line {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Pull-to-refresh visual hint */
+.pull-indicator {
+  transition: transform 0.3s ease;
+}
+
+/* Prevent zoom on input focus (iOS) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+/* Improved modal bottom sheet for mobile */
+@media (max-width: 639px) {
+  .modal-bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 85vh;
+    border-radius: 1.5rem 1.5rem 0 0;
+    overflow-y: auto;
+    animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}
+
+/* Loading skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Responsive container helpers */
+.container-mobile {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-mobile {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Keyboard open state - adjusts layout when mobile keyboard appears */
+body.keyboard-open {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body.keyboard-open main {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* PWA install prompt styling */
+.pwa-install-prompt {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  background: white;
+  border: 2px solid var(--color-link-700);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 0 var(--color-link-700);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .pwa-install-prompt {
+    left: auto;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    max-width: 400px;
+  }
+}
+
+/* Swipe animation for page transitions */
+@keyframes swipeInLeft {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes swipeInRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes swipeInUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Touch ripple effect for buttons */
+.touch-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.touch-ripple:active::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Momentum scrolling for iOS */
+.momentum-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+/* Pull to refresh indicator */
+.pull-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-brand-600), var(--color-grape-600));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  z-index: 9999;
+}
+
+.pull-indicator.active {
+  transform: scaleX(1);
+}
+
+.pull-indicator.refreshing {
+  animation: pullRefresh 1s infinite;
+}
+
+@keyframes pullRefresh {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: left; }
+  50.1% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Swipe hint animation */
+@keyframes swipeHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+}
+
+.swipe-hint {
+  animation: swipeHint 2s ease-in-out infinite;
+}
+
+/* Improved focus styles for touch devices */
+@media (pointer: coarse) {
+  *:focus-visible {
+    outline: 3px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Hover disabled on touch devices */
+@media (hover: none) {
+  .hover\:bg-brand-50:hover {
+    background-color: transparent;
+  }
+  .hover\:bg-grape-50:hover {
+    background-color: transparent;
+  }
+  .hover\:bg-amber-50:hover {
+    background-color: transparent;
+  }
+  .hover\:bg-rose-50:hover {
+    background-color: transparent;
+  }
+  .hover\:bg-slate-50:hover {
+    background-color: transparent;
+  }
+}
+
+/* Standalone mode styles for PWA */
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  .pwa-header-spacer {
+    height: env(safe-area-inset-top, 0);
+  }
+}
