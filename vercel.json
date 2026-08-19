@@ -41,6 +41,5 @@
   ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "includeFiles": ["db.json"]
+  "framework": "vite"
 }
