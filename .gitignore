@@ -28,3 +28,5 @@ repro-*.mjs
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
