@@ -1,7 +1,7 @@
 // Kehadiran online (presence) untuk Chat Redaksi — demo berbasis polling.
 // Setiap user yang membuka halaman chat mengirim "heartbeat" berkala (lastSeen)
 // ke koleksi `presence`. User dianggap online bila lastSeen-nya masih segar.
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const BASE_URL = import.meta.env.VITE_API_URL || '/api'
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

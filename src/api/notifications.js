@@ -1,7 +1,7 @@
 // Notifikasi in-app (demo: polling ke JSON Server, tidak ada push realtime)
 import { auth, hasPermission } from './auth'
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const BASE_URL = import.meta.env.VITE_API_URL || '/api'
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

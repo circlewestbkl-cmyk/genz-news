@@ -11412,7 +11412,8 @@
       "content": "hupf",
       "readBy": [
         "editor",
-        "garaanemesis"
+        "garaanemesis",
+        "penulis"
       ],
       "reactions": {},
       "createdAt": "2026-08-17T22:14:00.172Z",
@@ -11706,7 +11707,7 @@
     },
     {
       "username": "penulis",
-      "lastSeen": "2026-08-17T13:25:20.434Z",
+      "lastSeen": "2026-08-19T10:38:54.724Z",
       "id": 3
     },
     {

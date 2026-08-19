@@ -1,7 +1,7 @@
 // Autentikasi & manajemen sesi (demo: user & hash password tersimpan di db.json)
 import { sha256 } from '../utils/hash'
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const BASE_URL = import.meta.env.VITE_API_URL || '/api'
 const SESSION_KEY = 'genz_session'
 
 async function request(path, options = {}) {
