@@ -86,9 +86,12 @@ export default async function handler(req, res) {
 
   const db = getDb()
   const url = new URL(req.url, 'http://localhost')
-  const slug = url.searchParams.get('_slug') || ''
+  // Extract slug from URL path: /api/articles/11 -> 'articles/11'
+  const pathParts = url.pathname.split('/').filter(Boolean)
+  // Remove 'api' prefix if present
+  const slugParts = pathParts[0] === 'api' ? pathParts.slice(1) : pathParts
+  const slug = slugParts.join('/')
   const params = Object.fromEntries(url.searchParams.entries())
-  delete params._slug
 
   const parts = slug.split('/').filter(Boolean)
   const collection = parts[0]

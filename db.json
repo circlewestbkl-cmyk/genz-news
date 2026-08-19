@@ -6905,6 +6905,15 @@
       "detail": "Login berhasil sebagai writer",
       "createdAt": "2026-08-18T04:22:19.079Z",
       "id": 420
+    },
+    {
+      "username": "admin",
+      "name": "Administrator",
+      "role": "admin",
+      "action": "login",
+      "detail": "Login berhasil sebagai admin",
+      "createdAt": "2026-08-19T10:43:38.736Z",
+      "id": 421
     }
   ],
   "notifications": [
